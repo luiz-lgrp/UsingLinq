@@ -1,49 +1,49 @@
 ﻿// FONTE DE DADOS
-var listaProdutos = new List<Produto>()
+var listProducts = new List<Producto>()
 {
-    new Produto {Id = 9, CategoriaId = 2, Nome = "Geladeira", Status = true, Valor = 1522},
-    new Produto {Id = 2, CategoriaId = 3, Nome = "Short", Status = true, Valor = 130},
-    new Produto {Id = 4, CategoriaId = 1, Nome = "Maquina de lavar", Status = false, Valor = 2780},
-    new Produto {Id = 3, CategoriaId = 1, Nome = "Video Game", Status = true, Valor = 3510},
-    new Produto {Id = 6, CategoriaId = 2, Nome = "Arroz", Status = true, Valor = 45},
-    new Produto {Id = 8, CategoriaId = 1, Nome = "TV", Status = true, Valor = 4500},
-    new Produto {Id = 1, CategoriaId = 3, Nome = "Camiseta", Status = true, Valor = 100},
-    new Produto {Id = 5, CategoriaId = 1, Nome = "Microondas", Status = true, Valor = 780},
-    new Produto {Id = 7, CategoriaId = 2, Nome = "Feijão", Status = true, Valor = 27},
+    new Producto {Id = 9, CategoryId = 2, Name = "Geladeira", Status = true, Value = 1522},
+    new Producto {Id = 2, CategoryId = 3, Name = "Short", Status = true, Value = 130},
+    new Producto {Id = 4, CategoryId = 1, Name = "Maquina de lavar", Status = false, Value = 2780},
+    new Producto {Id = 3, CategoryId = 1, Name = "Video Game", Status = true, Value = 3510},
+    new Producto {Id = 6, CategoryId = 2, Name = "Arroz", Status = true, Value = 45},
+    new Producto {Id = 8, CategoryId = 1, Name = "TV", Status = true, Value = 4500},
+    new Producto {Id = 1, CategoryId = 3, Name = "Camiseta", Status = true, Value = 100},
+    new Producto {Id = 5, CategoryId = 1, Name = "Microondas", Status = true, Value = 780},
+    new Producto {Id = 7, CategoryId = 2, Name = "Feijão", Status = true, Value = 27},
 };
 
-var listaCategorias = new List<Categoria>()
+var listCategories = new List<Category>()
 {
-    new Categoria{Id = 1, Status = true, Nome = "Eletronicos"},
-    new Categoria{Id = 2, Status = true, Nome = "Alimentos"},
-    new Categoria{Id = 3, Status = true, Nome = "Vestuario"},
+    new Category{Id = 1, Status = true, Name = "Eletronicos"},
+    new Category{Id = 2, Status = true, Name = "Alimentos"},
+    new Category{Id = 3, Status = true, Name = "Vestuario"},
 
 };
 
 ////EXEMPLO
 ////1° PASSO: CRIAR CONSULTA LINQ
 
-//var resultado = from produto in listaProdutos
-//                select produto;
+//var list1 = from product in listProducts
+//                select product;
 
 ////2° PASSO: EXECUTAR A CONSULTA
 
-//foreach (var result in resultado)
+//foreach (var result in list1)
 //{
-//    Console.WriteLine($"Id: {result.Id} | Nome: {result.Nome} | Valor: {result.Valor}");
+//    Console.WriteLine($"Id: {result.Id} | Name: {result.Name} | Value: {result.Value}");
 //}
 
 
 
 Console.WriteLine("01 - FILTRAR POR NOME");
 Console.WriteLine("");
-var resultado = from produto in listaProdutos
-                where produto.Nome.ToLower() == "Arroz".ToLower()
-                select produto;
+var list1 = from product in listProducts
+                where product.Name.ToLower() == "Arroz".ToLower()
+                select product;
 
-foreach (var result in resultado)
+foreach (var result in list1)
 {
-    Console.WriteLine($"Nome: {result.Nome} | Valor: {result.Valor}");
+    Console.WriteLine($"Name: {result.Name} | Value: {result.Value}");
 }
 
 Console.WriteLine("");
@@ -53,13 +53,13 @@ Console.WriteLine("");
 
 Console.WriteLine("02 - FILTRAR PELO INICIO DA LETRA");
 Console.WriteLine("");
-var resultado2 = from produto in listaProdutos
-                where produto.Nome.ToLower().Substring(0, 1) == "M".ToLower()
-                select produto;
+var list2 = from product in listProducts
+                where product.Name.ToLower().Substring(0, 1) == "M".ToLower()
+                select product;
 
-foreach (var result in resultado2)
+foreach (var result in list2)
 {
-    Console.WriteLine($"Nome: {result.Nome} | Valor: {result.Valor}");
+    Console.WriteLine($"Name: {result.Name} | Value: {result.Value}");
 }
 
 Console.WriteLine("");
@@ -69,13 +69,13 @@ Console.WriteLine("");
 
 Console.WriteLine("03 - FILTRAR PELA PRIMEIRA LETRA E STATUS");
 Console.WriteLine(""); 
-var resultado3 = from produto in listaProdutos
-                where produto.Nome.ToLower().Substring(0, 1) == "M".ToLower() && produto.Status != true
-                select produto;
+var list3 = from product in listProducts
+                where product.Name.ToLower().Substring(0, 1) == "M".ToLower() && product.Status != true
+                select product;
 
-foreach (var result in resultado3)
+foreach (var result in list3)
 {
-    Console.WriteLine($"Nome: {result.Nome} | Status: {result.Status}");
+    Console.WriteLine($"Name: {result.Name} | Status: {result.Status}");
 }
 
 Console.WriteLine("");
@@ -85,13 +85,13 @@ Console.WriteLine("");
 
 Console.WriteLine("04 - ORDENAR POR ID DECRESCENTE");
 Console.WriteLine(""); 
-var resultado4 = from produto in listaProdutos
-                orderby produto.Id descending
-                select produto;
+var list4 = from product in listProducts
+                orderby product.Id descending
+                select product;
 
-foreach (var result in resultado4)
+foreach (var result in list4)
 {
-    Console.WriteLine($"Id: {result.Id} | Nome: {result.Nome} | Valor: {result.Valor}");
+    Console.WriteLine($"Id: {result.Id} | Name: {result.Name} | Value: {result.Value}");
 }
 
 Console.WriteLine("");
@@ -101,13 +101,13 @@ Console.WriteLine("");
 
 Console.WriteLine("05 - SOMENTE PRODUTOS ENTRE DETERMINADOS VALORES");
 Console.WriteLine(""); 
-var resultado5 = from produto in listaProdutos
-                where produto.Valor > 500 && produto.Valor < 4000
-                select produto;
+var list5 = from product in listProducts
+                where product.Value > 500 && product.Value < 4000
+                select product;
 
-foreach (var result in resultado5)
+foreach (var result in list5)
 {
-    Console.WriteLine($" Nome: {result.Nome} | Valor: {result.Valor}");
+    Console.WriteLine($" Name: {result.Name} | Value: {result.Value}");
 }
 
 Console.WriteLine("");
@@ -117,12 +117,12 @@ Console.WriteLine("");
 
 Console.WriteLine("06 - RETORNANDO NOME E VALOR USANDO OBJETO ANONIMO");
 Console.WriteLine(""); 
-var resultado6 = from produto in listaProdutos
-                select new { produto.Nome, produto.Valor };
+var list6 = from product in listProducts
+                select new { product.Name, product.Value };
 
-foreach (var result in resultado6)
+foreach (var result in list6)
 {
-    Console.WriteLine($" Nome: {result.Nome} | Valor: {result.Valor}");
+    Console.WriteLine($" Name: {result.Name} | Value: {result.Value}");
 }
 
 Console.WriteLine("");
@@ -133,16 +133,16 @@ Console.WriteLine("");
 Console.WriteLine("07 - RETORNANDO NOME E VALOR USANDO OUTRA CLASSE");
 Console.WriteLine(""); 
 //DESSE JEITO POSSO FAZER OPERAÇÕES MATEMATICAS
-var resultado7 = from produto in listaProdutos
-                select new ProdutoDto
+var list7 = from product in listProducts
+                select new ProductoDto
                 {
-                    Nome = produto.Nome,
-                    Valor = produto.Valor + 20
+                    Name = product.Name,
+                    Value = product.Value + 20
                 };
 
-foreach (var result in resultado7)
+foreach (var result in list7)
 {
-    Console.WriteLine($" Nome: {result.Nome} | Valor: {result.Valor}");
+    Console.WriteLine($" Name: {result.Name} | Value: {result.Value}");
 }
 
 Console.WriteLine("");
@@ -152,18 +152,18 @@ Console.WriteLine("");
 
 Console.WriteLine("08 - AGRUPAMENTOS POR CATEGORIA");
 Console.WriteLine("");
-var resultado8 = from produto in listaProdutos
-                group produto by produto.CategoriaId into prodAgrupados
+var list8 = from product in listProducts
+                group product by product.CategoryId into prodAgrupados
                 select prodAgrupados;
 
-foreach (var result in resultado8)
+foreach (var result in list8)
 {
     Console.WriteLine("");
-    Console.WriteLine($"Grupo: {result.Key}");
+    Console.WriteLine($"Group: {result.Key}");
     Console.WriteLine("");
-    foreach (var produto in result)
+    foreach (var product in result)
     {
-        Console.WriteLine($" Produto: {produto.Nome} | Categoria: {produto.CategoriaId}");
+        Console.WriteLine($" Producto: {product.Name} | Category: {product.CategoryId}");
     }
 
 }
@@ -174,45 +174,46 @@ Console.WriteLine("");
 
 Console.WriteLine("09 - RETORNANDO NOME DO PRODUTO E NOME DA CATEGORIA");
 Console.WriteLine("");
-var resultado9 = from produto in listaProdutos
-                 join cat in listaCategorias
-                 on produto.CategoriaId equals cat.Id
+var list9
+    = from product in listProducts
+                 join cat in listCategories
+                 on product.CategoryId equals cat.Id
                  select new
                  {
-                     Produto = produto,
-                     Categoria = cat
+                     Product = product,
+                     Category = cat
                  };
 
-    foreach (var produto in resultado9)
+    foreach (var product in list9)
     {
-        Console.WriteLine($" Produto: {produto.Produto.Nome} | Categoria: {produto.Categoria.Nome}");
+        Console.WriteLine($" Producto: {product.Product.Name} | Category: {product.Category.Name}");
     };
 
 
 
 
-class Produto
+class Producto
 {
     public int Id { get; set; }
-    public string Nome { get; set; }
+    public string Name { get; set; }
     public bool Status { get; set; }
-    public decimal Valor { get; set; }
-    public int CategoriaId { get; set; }
+    public decimal Value { get; set; }
+    public int CategoryId { get; set; }
 
 }
 
-class Categoria
+class Category
 {
     public int Id { get; set; }
-    public string Nome { get; set; }
+    public string Name { get; set; }
     public bool Status { get; set; }
 
 }
 
-class ProdutoDto
+class ProductoDto
 {
   
-    public string Nome { get; set; }
-    public decimal Valor { get; set; }
+    public string Name { get; set; }
+    public decimal Value { get; set; }
 
 }
