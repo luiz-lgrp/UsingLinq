@@ -256,8 +256,19 @@ foreach (var prod in list12)
 
 
 
+Console.WriteLine("");
+Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+Console.WriteLine("");
 
 
+
+
+
+Console.WriteLine("13 - VALOR TOTAL DOS PRODUTOS");
+Console.WriteLine("");
+var list13 = listProducts.Sum(prod => prod.Value);
+
+Console.WriteLine($"VALOR TOTAL: R${list13}");
 
 
 
@@ -270,8 +281,62 @@ Console.WriteLine("");
 
 
 
+Console.WriteLine("14 - MEDIA DOS VALORES DOS PRODUTOS");
+Console.WriteLine("");
+var list14 = listProducts.Average(prod => prod.Value);
 
-Console.WriteLine("? - REVERTENDO A LISTA TODA");
+Console.WriteLine(list14.ToString("Media dos Valores: R$ 0"));
+Console.WriteLine(list14.ToString($"Media dos Valores: R$ {list14}"));
+Console.WriteLine(list14.ToString("C0"));
+
+
+
+
+
+Console.WriteLine("");
+Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+Console.WriteLine("");
+
+Console.WriteLine("15 - QUANTOS ITENS TEM NA LISTA");
+Console.WriteLine("");
+var list15 = listProducts.Count();
+
+Console.WriteLine($"TOTAL DE ITENS: {list15}");
+
+
+
+
+Console.WriteLine("");
+Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+Console.WriteLine("");
+
+Console.WriteLine("16 - CRIANDO UMA LISTA COM VARIOS ITENS SEMELHANTES");
+Console.WriteLine("");
+var list16 = Enumerable.Repeat(new Producto
+{
+    Id = 7,
+    CategoryId = 2,
+    Name = "Feijao",
+    Status = true,
+    Value = 27
+}, 7);
+
+foreach (var item in list16)
+{
+    Console.WriteLine($"NOME: {item.Name} - CATEGORIA: {item.CategoryId} - VALOR: {item.Value}");
+}
+
+
+
+
+Console.WriteLine("");
+Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+Console.WriteLine("");
+
+
+
+
+Console.WriteLine("17 - REVERTENDO A LISTA TODA");
 Console.WriteLine("");
 listProducts.Reverse();
 
