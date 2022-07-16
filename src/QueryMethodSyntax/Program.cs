@@ -28,6 +28,8 @@ var list1 = listProducts.FirstOrDefault();
 Console.WriteLine($"NAME: {list1.Name} - ID: {list1.Id}");
 
 
+
+
 Console.WriteLine("");
 Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 Console.WriteLine("");
@@ -40,6 +42,8 @@ Console.WriteLine("");
 var list2 = listProducts.LastOrDefault();
 
 Console.WriteLine($"NAME: {list2.Name} - ID: {list2.Id}");
+
+
 
 
 Console.WriteLine("");
@@ -55,6 +59,8 @@ Console.WriteLine("");
 var list3 = listProducts.SingleOrDefault(x => x.Name == "Camiseta");
 
 Console.WriteLine($"NAME: {list3.Name} - ID: {list3.Id}");
+
+
 
 
 Console.WriteLine("");
@@ -75,9 +81,12 @@ foreach (var result in list4)
 }
 
 
+
+
 Console.WriteLine("");
 Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 Console.WriteLine("");
+
 
 
 
@@ -93,9 +102,11 @@ foreach (var result in list5)
 
 
 
+
 Console.WriteLine("");
 Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 Console.WriteLine("");
+
 
 
 
@@ -109,9 +120,12 @@ foreach (var result in list6)
 }
 
 
+
+
 Console.WriteLine("");
 Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 Console.WriteLine("");
+
 
 
 
@@ -127,19 +141,78 @@ foreach (var result in list7)
 
 
 
+
+
 Console.WriteLine("");
 Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 Console.WriteLine("");
 
 
 
-Console.WriteLine("08 - REVERTENDO A LISTA TODA");
-Console.WriteLine("");
-listProducts.Reverse();
 
-foreach (var result in listProducts)
+
+Console.WriteLine("08 - IGNORAR OS 3 PRIMEIROS PRODUTOS SEM O LINQ");
+Console.WriteLine("");
+var list8 = new List<Producto>();
+
+for (int i = 0; i < listProducts.Count; i++)
 {
-    Console.WriteLine($"ID: {result.Id} - NAME: {result.Name}");
+    if (i > 2)
+    {
+        list8.Add(listProducts[i]);
+    }
+}
+
+foreach (var prod in list8)
+{
+    Console.WriteLine($"ID: {prod.Id} - NOME: {prod.Name}");
+}
+
+
+
+
+
+Console.WriteLine("");
+Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+Console.WriteLine("");
+
+
+
+Console.WriteLine("09 - IGNORAR OS 3 PRIMEIROS PRODUTOS COM O LINQ");
+Console.WriteLine("");
+var list9 = listProducts.Skip(3);
+
+foreach (var prod in list9)
+{
+    Console.WriteLine($"ID: {prod.Id} - NOME: {prod.Name}");
+}
+
+
+
+
+
+Console.WriteLine("");
+Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+Console.WriteLine("");
+
+
+
+
+Console.WriteLine("10 - PEGAR OS 3 PRIMEIROS PRODUTOS SEM O LINQ");
+Console.WriteLine("");
+var list10 = new List<Producto>();
+
+for (int i = 0; i < listProducts.Count; i++)
+{
+    if (i < 3)
+    {
+        list10.Add(listProducts[i]);
+    }
+}
+
+foreach (var prod in list10)
+{
+    Console.WriteLine($"ID: {prod.Id} - NOME: {prod.Name}");
 }
 
 
@@ -152,6 +225,33 @@ Console.WriteLine("");
 
 
 
+Console.WriteLine("11 - PEGAR OS 3 PRIMEIROS PRODUTOS COM O LINQ");
+Console.WriteLine("");
+var list11 = listProducts.Skip(3).Take(3);
+
+foreach (var prod in list11)
+{
+    Console.WriteLine($"ID: {prod.Id} - NOME: {prod.Name}");
+}
+
+
+
+
+Console.WriteLine("");
+Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+Console.WriteLine("");
+
+
+
+
+Console.WriteLine("12 - PEGANDO OS 3 PRODUTOS DO MEIO");
+Console.WriteLine("");
+var list12 = listProducts.Skip(3).Take(3);
+
+foreach (var prod in list12)
+{
+    Console.WriteLine($"ID: {prod.Id} - NOME: {prod.Name}");
+}
 
 
 
@@ -159,6 +259,26 @@ Console.WriteLine("");
 
 
 
+
+
+
+
+
+Console.WriteLine("");
+Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+Console.WriteLine("");
+
+
+
+
+Console.WriteLine("? - REVERTENDO A LISTA TODA");
+Console.WriteLine("");
+listProducts.Reverse();
+
+foreach (var result in listProducts)
+{
+    Console.WriteLine($"ID: {result.Id} - NAME: {result.Name}");
+}
 
 
 
